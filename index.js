@@ -17,24 +17,24 @@ const port = process.env.PORT || "8080";
 app.use(bodyParser.json());
 app.use(cors());
 
-app.use(bodyParser.urlencoded({extended: true}));
+app.use(bodyParser.urlencoded({ extended: true }));
 // Log server messages
-app.use(morgan("dev"));
+// app.use(morgan("dev"));
 
-app.use("/", express.static('public'));
+app.use("/", express.static("public"));
 app.use("/api", require("./api"));
 
 // Listen the server
 app.listen(port, host);
 app.on("listening", function () {
-    console.log(
-        "Express server started on port %s at %s",
-        server.address().port,
-        server.address().address
-    );
+  console.log(
+    "Express server started on port %s at %s",
+    server.address().port,
+    server.address().address
+  );
 });
 
 // Exit properly on CTRL-C
 process.on("SIGINT", () => {
-    process.exit();
+  process.exit();
 });
