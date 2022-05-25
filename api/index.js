@@ -12,7 +12,6 @@ router.post("/create", (req, res) => {
 });
 
 router.get("/latest", (req, res) => {
-  console.log(latestPost);
   return res.status(200).json(latestPost);
 });
 
